@@ -15,8 +15,35 @@ class ChatScreen extends StatelessWidget {
               backgroundImage: NetworkImage(
                   'https://image.tmdb.org/t/p/original/4JE0AVAey5e4iy2qxNlr3U7fawJ.jpg')),
         ),
-        title: const Text('My amor :) '),
+        title: const Text('My amor ❤️'),
         centerTitle: false,
+      ),
+      body: _ChatView(),
+    );
+  }
+}
+
+class _ChatView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text('Message $index'),
+                  );
+                },
+              ),
+            ),
+            Text('Chat view'),
+          ],
+        ),
       ),
     );
   }
