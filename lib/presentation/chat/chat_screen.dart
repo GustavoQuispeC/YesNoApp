@@ -22,7 +22,7 @@ class ChatScreen extends StatelessWidget {
     );
   }
 }
-
+//widget personalizado
 class _ChatView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
