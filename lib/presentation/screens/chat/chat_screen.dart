@@ -1,5 +1,6 @@
 //Snipeet: importM
 import 'package:flutter/material.dart';
+import 'package:yes_no_app/presentation/widgets/chat/her_message_bubble.dart';
 import 'package:yes_no_app/presentation/widgets/chat/my_message_bubble.dart';
 
 //Snippet: Stlesw
@@ -23,6 +24,7 @@ class ChatScreen extends StatelessWidget {
     );
   }
 }
+
 //widget personalizado
 class _ChatView extends StatelessWidget {
   @override
@@ -36,7 +38,9 @@ class _ChatView extends StatelessWidget {
               child: ListView.builder(
                 itemCount: 10,
                 itemBuilder: (context, index) {
-                  return const MyMessageBubble();
+                  return (index % 2 == 0)
+                      ? const HerMessageBuble()
+                      : const MyMessageBubble();
                 },
               ),
             ),
@@ -47,4 +51,3 @@ class _ChatView extends StatelessWidget {
     );
   }
 }
-
