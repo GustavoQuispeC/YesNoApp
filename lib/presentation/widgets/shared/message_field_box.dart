@@ -5,11 +5,14 @@ class MessageFieldBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textController = TextEditingController();
+
     final outlineInputBorder = UnderlineInputBorder(
         borderSide: const BorderSide(color: Colors.transparent),
         borderRadius: BorderRadius.circular(20));
 
     final inputDecoration = InputDecoration(
+        hintText: 'End your message...with a "?"',
         enabledBorder: outlineInputBorder,
         focusedBorder: outlineInputBorder,
         filled: true,
@@ -21,9 +24,11 @@ class MessageFieldBox extends StatelessWidget {
         ));
 
     return TextFormField(
+      controller: textController,
       decoration: inputDecoration,
       onFieldSubmitted: (value) {
         print('submit $value');
+        textController.clear();
       },
       onChanged: (value) {
         print('change $value');
