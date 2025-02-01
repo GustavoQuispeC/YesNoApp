@@ -5,6 +5,7 @@ class MessageFieldBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TextEditingController es usado para manejar el texto de un widget
     final textController = TextEditingController();
 
     //FocusNode es usado para manejar el foco de un widget
