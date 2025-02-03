@@ -15,14 +15,14 @@ class HerMessageBuble extends StatelessWidget {
           child: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Text(
-              'Hola mundo',
+              'Hola como estas?',
               style: TextStyle(color: Colors.white),
             ),
           ),
         ),
         const SizedBox(height: 5),
         _ImageBubble(),
-        SizedBox(
+        const SizedBox(
           height: 10,
         )
         //Todo: imagen
