@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:yes_no_app/config/helpers/get_yes_no_answer.dart';
 import 'package:yes_no_app/domain/entities/message.dart';
 
 class ChatProvider extends ChangeNotifier {
   //ScrollController es usado para manejar el scroll de un widget
   final ScrollController chatScrollController = ScrollController();
+
+//instanciar la clase GetYesNoAnswer
+  final GetYesNoAnswer getYesNoAnswer = GetYesNoAnswer();
 
   List<Message> messageList = [
     Message(text: 'Hola Maritza..', fromWho: FromWho.me),
@@ -15,7 +19,17 @@ class ChatProvider extends ChangeNotifier {
 
     final newMessage = Message(text: text, fromWho: FromWho.me);
     messageList.add(newMessage);
+    if (text.endsWith('?')) {
+      herReply();
+    }
     //sirve para notificar a los widgets que estan escuchando
+    notifyListeners();
+    moveScrollToBottom();
+  }
+
+  Future<void> herReply() async {
+    final herMessage = await getYesNoAnswer.getAnswer();
+    messageList.add(herMessage);
     notifyListeners();
     moveScrollToBottom();
   }
