@@ -9,7 +9,9 @@ import 'package:provider/provider.dart';
 
 //Snippet: Stlesw
 class ChatScreen extends StatelessWidget {
-  const ChatScreen({super.key});
+  const ChatScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +49,8 @@ class _ChatView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final message = chatProvider.messageList[index];
                   return (message.fromWho == FromWho.hers)
-                      ? const HerMessageBuble()
-                      : MyMessageBubble(
-                          message: message,
-                        );
+                      ? HerMessageBuble(message: message)
+                      : MyMessageBubble(message: message,);
                 },
               ),
             ),
